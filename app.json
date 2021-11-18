@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "SkateSpotApp",
+    "slug": "SkateSpotApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "SkateSpotApp"
+}
