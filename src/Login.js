@@ -29,8 +29,6 @@ export default function Login() {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
- console.log(firebaseObject);
- console.log(process.env.REACT_APP_API_KEY)
   const register = async () => {
 try{
    const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
@@ -65,7 +63,7 @@ try{
         <TextInput editable style={styles.input} placeholder="Password" onChange={(event) => {setLoginPassword(event.target.value)}} />
       </View>
       <View style={styles.fixToText}>
-        <Button title="Sign Up" onClick={register()} /> 
+        <Button title="Sign Up" onClick={register }/> 
         <Button title="Login" /> 
       </View>
 
