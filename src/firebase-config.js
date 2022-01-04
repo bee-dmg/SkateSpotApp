@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, signInAnonymously } from "firebase/auth";
 //import { REACT_APP_API_KEY, REACT_APP_AUTH_DOMAIN, REACT_APP_PROJECT_ID, REACT_APP_STORAGE_BUCKET, REACT_APP_SENDER_ID, REACT_APP_APP_ID, REACT_APP_MEASUREMENT_ID } from "react-native-dotenv";
 
 const firebaseConfig = {
@@ -18,5 +18,14 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
+signInAnonymously(auth)
+  .then(() => {
+    // Signed in..
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ...
+  });
 
 export const firebaseObject = firebaseConfig;

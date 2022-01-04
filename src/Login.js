@@ -13,10 +13,12 @@ export default function Login() {
       padding: 10,
     },
     fixToText: {
+     
       flexDirection: "row",
       justifyContent: "space-between",
     },
     center: {
+    
       justifyContent: "center",
       margin: 5,
       paddingTop:50,
@@ -67,7 +69,7 @@ try{
       </View>
       <View>
         
-        <TextInput editable style={styles.input} placeholder="Register Password" onChange={(event) => {setRegisterPassword(event.target.value)}}/>
+        <TextInput editable style={styles.input} secureTextEntry="true" placeholder="Register Password" onChange={(event) => {setRegisterPassword(event.target.value)}}/>
       </View>
 
 
@@ -76,7 +78,7 @@ try{
       </View>
       <View>
         
-        <TextInput editable style={styles.input} placeholder="Password" onChange={(event) => {setLoginPassword(event.target.value)}} />
+        <TextInput editable style={styles.input} secureTextEntry="true" placeholder="Password" onChange={(event) => {setLoginPassword(event.target.value)}} />
       </View>
       <View style={styles.fixToText}>
         <Button title="Sign Up" onPress={register}/> 
@@ -84,7 +86,7 @@ try{
       </View>
 
       <View style={styles.center}><Button title="Sign Out" onPress={logout} /></View>
-      <View> {user?.email}</View>
+      <Text>{user?.email}</Text>
     </View>
   );
 }
