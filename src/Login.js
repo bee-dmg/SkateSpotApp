@@ -62,7 +62,7 @@ try{
     await signOut(auth);
 
   }
-  return (
+  if(!user){return (
     <View>
 <View>
         <TextInput editable style={styles.input} placeholder="Register Email" onChange={(event) => {setRegisterEmail(event.target.value)}} />
@@ -84,9 +84,10 @@ try{
         <Button title="Sign Up" onPress={register}/> 
         <Button title="Login" onPress={login} /> 
       </View>
-
-      <View style={styles.center}><Button title="Sign Out" onPress={logout} /></View>
-      <Text>{user?.email}</Text>
-    </View>
-  );
-}
+      </View>
+      
+    
+  )}
+  else {return(<View><View style={styles.center}><Button title="Sign Out" onPress={logout} /></View>
+      <Text>Welcome {user?.email}</Text></View>)
+}}
