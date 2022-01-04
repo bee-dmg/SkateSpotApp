@@ -28,8 +28,8 @@ export default function Login() {
   });
 
 
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
+  // const [registerEmail, setRegisterEmail] = useState("");
+  // const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [user, setUser] = useState("");
@@ -39,7 +39,7 @@ export default function Login() {
   })
   const register = async () => {
 try{
-   const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+   const user = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
    console.log(user);
   } catch(error){
     console.log(error.message);
@@ -64,13 +64,13 @@ try{
   }
   if(!user){return (
     <View>
-<View>
+{/* <View>
         <TextInput editable style={styles.input} placeholder="Register Email" onChange={(event) => {setRegisterEmail(event.target.value)}} />
       </View>
       <View>
         
         <TextInput editable style={styles.input} secureTextEntry="true" placeholder="Register Password" onChange={(event) => {setRegisterPassword(event.target.value)}}/>
-      </View>
+      </View> */}
 
 
       <View>
