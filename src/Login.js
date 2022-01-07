@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import {createUserWithEmailAndPassword, onAuthStateChanged,signOut, signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from './firebase-config';
+import SignedIn from './SignedIn'
 
 export default function Login() {
   const styles = StyleSheet.create({
@@ -55,6 +56,9 @@ try{
       console.log(user);
     } catch (error) {
       console.log(error.message);
+      return(
+        <View><Text>{error.message}</Text></View>
+      )
     }
   }
 
@@ -88,6 +92,6 @@ try{
       
     
   )}
-  else {return(<View><View style={styles.center}><Button title="Sign Out" onPress={logout} /></View>
-      <Text>Welcome {user?.email}</Text></View>)
-}}
+  else {return(<View><View style={styles.center}><Button title="Sign Out" onPress={logout} /></View><SignedIn user={user}/> </View>)
+}
+}
