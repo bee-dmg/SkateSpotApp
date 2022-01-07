@@ -31,8 +31,8 @@ export default function Login() {
 
   // const [registerEmail, setRegisterEmail] = useState("");
   // const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  const [loginEmail, setLoginEmail] = useState(""); // in User context now
+  const [loginPassword, setLoginPassword] = useState(""); // in user context now
   const [user, setUser] = useState("");
 
   onAuthStateChanged(auth, (currentUser) => {
