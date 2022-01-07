@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import {createUserWithEmailAndPassword, onAuthStateChanged,signOut, signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from './firebase-config';
 import SignedIn from './SignedIn'
+import { UserContext } from "./context/UserContext";
 
 export default function Login() {
   const styles = StyleSheet.create({
