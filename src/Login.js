@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import {createUserWithEmailAndPassword, onAuthStateChanged,signOut, signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from './firebase-config';
 import SignedIn from './SignedIn'
-import { UserContext } from "./context/UserContext";
+import { authContext } from "./context/AuthContext";
 
 export default function Login() {
   const styles = StyleSheet.create({
@@ -30,8 +30,7 @@ export default function Login() {
   });
 
 
-  // const [registerEmail, setRegisterEmail] = useState("");
-  // const [registerPassword, setRegisterPassword] = useState("");
+
   const [loginEmail, setLoginEmail] = useState(""); // in User context now
   const [loginPassword, setLoginPassword] = useState(""); // in user context now
   const [user, setUser] = useState("");
@@ -57,9 +56,7 @@ try{
       console.log(user);
     } catch (error) {
       console.log(error.message);
-      return(
-        <View><Text>{error.message}</Text></View>
-      )
+      
     }
   }
 
@@ -69,15 +66,6 @@ try{
   }
   if(!user){return (
     <View>
-{/* <View>
-        <TextInput editable style={styles.input} placeholder="Register Email" onChange={(event) => {setRegisterEmail(event.target.value)}} />
-      </View>
-      <View>
-        
-        <TextInput editable style={styles.input} secureTextEntry="true" placeholder="Register Password" onChange={(event) => {setRegisterPassword(event.target.value)}}/>
-      </View> */}
-
-
       <View>
         <TextInput editable style={styles.input} placeholder="Email" onChange={(event) => {setLoginEmail(event.target.value)}}/>
       </View>

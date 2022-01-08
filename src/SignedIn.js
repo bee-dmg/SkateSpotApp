@@ -1,11 +1,11 @@
 import React, {useContext} from "react";
 import {Text, View } from "react-native";
 
-import { UserContext } from "./context/UserContext";
+import { authContext } from "./context/AuthContext";
 
 
 export default function SignedIn(props) {
-    const userContext = useContext(UserContext);
+    // const authContext = useContext(authContext);
 
   return(
       <View><Text>Welcome {props.user.email}
