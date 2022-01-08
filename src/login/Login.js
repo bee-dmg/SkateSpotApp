@@ -1,9 +1,6 @@
 import React, { useState, useContext } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
-import {
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase-config";
 import SignedIn from "../SignedIn";
 import AuthContext from "../context/AuthContext";
@@ -25,10 +22,10 @@ export default function Login() {
   } else {
     return (
       <View>
-        <View style={styles.center}>
-          <Button title="Sign Out" onPress={logout} />
-        </View>
         <SignedIn user={user} />
+        <View style={styles.center}>
+          <Button title="Log Out" onPress={logout} />
+        </View>
       </View>
     );
   }
