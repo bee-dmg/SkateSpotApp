@@ -3,9 +3,12 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import {createUserWithEmailAndPassword, onAuthStateChanged,signOut, signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from './firebase-config';
 import SignedIn from './SignedIn'
-import { authContext } from "./context/AuthContext";
+import  AuthContext  from "./context/AuthContext";
 
 export default function Login() {
+  const { message, user, setUser } = useContext(AuthContext);
+
+
   const styles = StyleSheet.create({
     input: {
       height: 40,
@@ -33,7 +36,7 @@ export default function Login() {
 
   const [loginEmail, setLoginEmail] = useState(""); // in User context now
   const [loginPassword, setLoginPassword] = useState(""); // in user context now
-  const [user, setUser] = useState("");
+ 
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -76,6 +79,7 @@ try{
       <View style={styles.fixToText}>
         <Button title="Sign Up" onPress={register}/> 
         <Button title="Login" onPress={login} /> 
+        {message}
       </View>
       </View>
       

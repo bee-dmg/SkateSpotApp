@@ -1,15 +1,15 @@
 import React, {useContext} from "react";
 import {Text, View } from "react-native";
+import AuthContext from "./context/AuthContext";
 
-import { authContext } from "./context/AuthContext";
 
 
 export default function SignedIn(props) {
-    // const authContext = useContext(authContext);
+ const {message, user} = useContext(AuthContext);
 
   return(
-      <View><Text>Welcome {props.user.email}
-      </Text>
+      <View><Text>Welcome {user.email}
+      </Text>{message}
       </View>)
 
 
