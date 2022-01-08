@@ -4,13 +4,13 @@ import AuthContext from "./context/AuthContext";
 
 
 
-export default function SignedIn(props) {
+export default function SignedIn() {
  const {message, user} = useContext(AuthContext);
 
   return(
-      <View><Text>Welcome {user.email}
-      </Text>{message}
-      </View>)
+      <Text>Welcome {user.email}
+      </Text>
+      )
 
 
 
