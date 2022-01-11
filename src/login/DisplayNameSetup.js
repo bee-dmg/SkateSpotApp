@@ -2,6 +2,9 @@ import React, { useState} from "react";
 import { styles } from "./Styles";
 import { View, TextInput, Button } from "react-native";
 import { auth } from "../firebase-config";
+import {
+  updateProfile
+} from "firebase/auth";
 
 export default function DisplayNameSetup() {
   const [displayName, setDisplayName] = useState("");
@@ -10,7 +13,8 @@ export default function DisplayNameSetup() {
         displayName: displayName,
         photoURL: null
       };
-      // await auth.currentUser.updateProfile(update);
+      console.log(update.displayName);
+      //  await auth.updateProfile(update);
   };
   return (
     <View>
