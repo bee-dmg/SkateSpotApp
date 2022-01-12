@@ -22,7 +22,10 @@ export default function Login() {
     return <LoginForm />;
   }
   else if(!user.displayName){
-    return(<DisplayNameSetup />)
+    return(<View> <View><DisplayNameSetup/></View>
+    
+      <Button title="Log Out" onPress={logout} />
+      </View>)
   } else {
     return (
       <View>
