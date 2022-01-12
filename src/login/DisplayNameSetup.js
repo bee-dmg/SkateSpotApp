@@ -4,6 +4,7 @@ import { View, TextInput, Button } from "react-native";
 import { auth } from "../firebase-config";
 import { onAuthStateChanged, updateProfile } from "firebase/auth";
 import AuthContext from "../context/AuthContext";
+import Home from "../Home";
 
 export default function DisplayNameSetup() {
   const { user, setUser } = useContext(AuthContext);
@@ -13,12 +14,15 @@ export default function DisplayNameSetup() {
         displayName: displayName,
         photoURL: "test"
       };
+      
        updateProfile(auth.currentUser, update);
        onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
+        console.log(user);
       });
   };
-  return (
+  if(!auth.currentUser.displayName){
+    return (
     <View>
       <View>
         <TextInput
@@ -37,4 +41,10 @@ export default function DisplayNameSetup() {
       </View>
     </View>
   );
+        }
+    else{
+      return(
+        <Home />
+      );
+      }
 }
