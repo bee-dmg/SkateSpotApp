@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { styles } from "./Styles";
 import { View, TextInput, Button } from "react-native";
 import { auth } from "../firebase-config";
-import { updateProfile } from "firebase/auth";
+import { onAuthStateChanged, updateProfile } from "firebase/auth";
+import AuthContext from "../context/AuthContext";
 
 export default function DisplayNameSetup() {
   const { user, setUser } = useContext(AuthContext);
