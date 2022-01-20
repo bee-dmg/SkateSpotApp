@@ -21,12 +21,12 @@ export default function Login() {
   if (!user) {
     return <LoginForm />;
   }
-  else if(!user.displayName){
+  if(!user.displayName){
     return(<View> <View><DisplayNameSetup/></View>
     
-      <Button title="Log Out" onPress={logout} />
+      
       </View>)
-  } else {
+  } if(user.displayName) {
     return (
       <View>
         <Home/>

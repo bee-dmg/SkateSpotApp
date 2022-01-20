@@ -2,13 +2,17 @@ import React, { useContext, useState, useEffect } from "react";
 import { styles } from "./Styles";
 import { View, TextInput, Button } from "react-native";
 import { auth } from "../firebase-config";
-import { onAuthStateChanged, updateProfile } from "firebase/auth";
+import { onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
+
 import AuthContext from "../context/AuthContext";
-import Home from "../Home";
+
 
 export default function DisplayNameSetup() {
   const { user, setUser } = useContext(AuthContext);
   const [displayName, setDisplayName] = useState("");
+  const logout = async () => {
+    await signOut(auth);
+  };
   const updateDisplayName = async () => {
     try{
       const update = {
@@ -25,8 +29,6 @@ export default function DisplayNameSetup() {
         catch(error){console.log(error.message);}
         
       };
-  
-  if(!user.displayName){
     return (
     <View>
       <View>
@@ -42,14 +44,12 @@ export default function DisplayNameSetup() {
       
       <View>
         
-        <Button title="Submit" onPress={updateDisplayName} />
+        <Button title="Submit" onPress={() => {updateDisplayName(); window.location.reload(false);}} />
       </View>
+      
     </View>
   );
         }
-    else{
-      return(
-        <Home />
-      );
-      }
-}
+   
+      
+
