@@ -19,6 +19,7 @@ export default function LoginForm() {
       );
       console.log(user);
     } catch (error) {
+      console.log(loginEmail)
       console.log(error.message);
     }
   };
@@ -39,6 +40,7 @@ export default function LoginForm() {
       <View>
         <TextInput
           editable
+          error={false}
           style={styles.input}
           placeholder="Email"
           onChange={(event) => {

@@ -11,8 +11,8 @@ import DisplayNameSetup from "./DisplayNameSetup";
 export default function Login() {
   const { user, setUser } = useContext(AuthContext);
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
+    onAuthStateChanged(auth, (currentUser) => {
+    // setUser(currentUser);
   });
 
   const logout = async () => {

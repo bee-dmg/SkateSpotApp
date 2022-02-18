@@ -7,10 +7,12 @@ import AuthState from "./src/context/AuthState";
 
 export default function App() {
   return (
-  <AuthState>      
+      
+  <AuthState>   
+   
     <View style={styles.container}>
         <Main />
-        <StatusBar style="auto" />
+        {/* <StatusBar style="auto" /> */}
       </View>
       </AuthState>
 
